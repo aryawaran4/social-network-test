@@ -1,462 +1,268 @@
-<div class="w-full h-full flex flex-col justify-center items-center bg-myred">
-  <div class="w-10/12 h-full flex flex-col justify-center items-center">
-    <div class="w-full flex items-start gap-6 pt-12 pb-14">
-      <div class="mr-12">
-        <p class="text-4xl text-mywhite font-thin">
-          <span class="font-normal">Social</span>Network
-        </p>
-      </div>
-      <div class="bg-mywhite py-3 px-4 flex items-center w-[40%]">
-        <input
-          type="text"
-          class="bg-mywhite text-myred search-input w-full"
-          placeholder="Find..."
-        />
-        <button class="icon">
-          <mat-icon class="text-myred">search</mat-icon>
-        </button>
-      </div>
-      <button class="bg-mywhite py-3 px-4 flex items-center">
-        <div class="icon">
-          <mat-icon class="text-myred">file_upload</mat-icon>
-        </div>
-        <p class="text-myred">Upload</p>
-      </button>
-      <div class="flex items-center gap-3 profile">
-        <button class="bg-mywhite py-3 px-4 flex items-center">
-          <div class="icon">
-            <mat-icon class="text-myred">person</mat-icon>
-          </div>
-        </button>
-        <div class="text-mywhite">
-          <p class="text-xl">Waseem</p>
-          <p class="text-sm">Arshad</p>
-        </div>
-      </div>
-    </div>
+<div *ngIf="loadingService.loading$ | async; else content"></div>
 
-    <div>
-      <h2>User List</h2>
-      <ul>
-        <li *ngFor="let user of users">{{ user.name }}</li>
-      </ul>
-    </div>
-
-    <div class="w-full border-mywhite border-y-2 mb-14">
-      <div class="w-full text-mywhite flex items-center text-xl py-4 gap-6">
-        <a class="nav-text" href="#videos">Videos</a>
-        <a class="nav-text" href="#people">People</a>
-        <a class="nav-text" href="#documents">Documents</a>
-        <a class="nav-text" href="#events">Events</a>
-        <a class="nav-text" href="#communities">Communities</a>
-        <a class="nav-text" href="#favourites">Favourites</a>
-        <a class="nav-text" href="#channels">Channels</a>
-      </div>
-    </div>
-
-    <div id="section-1" class="w-full flex mb-14 gap-6">
-      <div id="videos" class="w-[60%]">
-        <div class="flex items-end text-mywhite mb-4">
-          <p class="text-3xl w-1/2">Videos</p>
-          <p class="w-1/2 text-sm">Browse all videos</p>
-        </div>
-
-        <div class="grid-parent">
-          <div class="item-grid flex items-end" id="item-grid1">
-            <div class="w-full pb-1 px-2">
-              <p class="text-myred text-2xl">How to improve your skills</p>
-              <div class="text-myred text-sm flex w-full justify-between">
-                <p>Waseem Arshad</p>
-                <p>1237489 views</p>
-              </div>
-            </div>
+<ng-template #content>
+  <div>
+    <div
+      class="w-full h-full flex flex-col justify-center items-center bg-myred"
+    >
+      <div class="w-10/12 h-full flex flex-col justify-center items-center">
+        <div class="w-full flex items-start gap-6 pt-12 pb-14">
+          <div class="mr-12">
+            <p class="text-4xl text-mywhite font-thin">
+              <span class="font-normal">Social</span>Network
+            </p>
           </div>
-          <div class="item-grid flex items-end" id="item-grid2">
-            <div class="w-full pb-1 px-2">
-              <div class="text-myred text-sm flex w-full justify-between">
-                <p>John Stainer</p>
-                <p>2341 views</p>
-              </div>
-            </div>
+          <div class="bg-mywhite py-3 px-4 flex items-center w-[40%]">
+            <input
+              type="text"
+              class="bg-mywhite text-myred search-input w-full"
+              placeholder="Find..."
+            />
+            <button class="icon">
+              <mat-icon class="text-myred">search</mat-icon>
+            </button>
           </div>
-          <div class="item-grid flex items-end" id="item-grid3">
-            <div class="w-full pb-1 px-2">
-              <div class="text-myred text-sm flex w-full justify-between">
-                <p>John Doee</p>
-                <p>2352 views</p>
-              </div>
+          <button class="bg-mywhite py-3 px-4 flex items-center">
+            <div class="icon">
+              <mat-icon class="text-myred">file_upload</mat-icon>
             </div>
-          </div>
-          <div class="item-grid flex items-end" id="item-grid4">
-            <div class="w-full pb-1 px-2">
-              <div class="text-myred text-sm flex w-full justify-between">
-                <p>Michael Keliph</p>
-                <p>15637 views</p>
-              </div>
-            </div>
-          </div>
-          <div class="item-grid flex items-end" id="item-grid5">
-            <div class="w-full pb-1 px-2">
-              <div class="text-myred text-sm flex w-full justify-between">
-                <p>Ahmed Taslim</p>
-                <p>1986 views</p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="item-grid flex justify-center items-center bg-myred border border-mywhite"
-            id="item-grid6"
-          >
-            <div class="flex items-center gap-3">
+            <p class="text-myred">Upload</p>
+          </button>
+          <div class="flex items-center gap-3 profile">
+            <button class="bg-mywhite py-3 px-4 flex items-center">
               <div class="icon">
-                <mat-icon class="text-mywhite text-4xl">play_circle</mat-icon>
+                <mat-icon class="text-myred">person</mat-icon>
               </div>
-              <div class="text-mywhite text-sm">
-                <p>Upload</p>
-                <p>Your Own Video</p>
-              </div>
+            </button>
+            <div class="text-mywhite">
+              <p class="text-xl">Waseem</p>
+              <p class="text-sm">Arshad</p>
             </div>
           </div>
         </div>
-      </div>
-      <div id="activity" class="w-[40%]">
-        <div class="flex items-end justify-between text-mywhite mb-4">
-          <p class="text-3xl">Activity</p>
-          <p class="text-sm">View timeline / Filter activities</p>
-        </div>
-        <div
-          class="flex items-center flex-col border-y border-mywhite border-t-4 gap-3 py-3"
-        >
-          <div class="w-full flex items-center gap-3">
-            <div class="bg-mywhite w-32 h-20"></div>
-            <div class="text-mywhite font-light">
-              <p class="font-medium text-lg">
-                John Stainer<span class="text-sm font-light ml-1"
-                  >connected</span
-                >
-              </p>
-              <p class="text-sm mb-1">
-                Well, I am liking on how you capturing the audio
-              </p>
-              <div class="flex items-center">
-                <div class="icon">
-                  <mat-icon class="text-mywhite text-sm w-fit h-fit mr-1"
-                    >chat_bubble</mat-icon
-                  >
-                </div>
-                <p class="text-xs">2 seconds ago</p>
-              </div>
-            </div>
-          </div>
-          <div class="w-full flex items-center gap-3">
-            <div class="bg-mywhite w-32 h-20"></div>
-            <div class="text-mywhite font-light">
-              <p class="font-medium text-lg">
-                John Stainer<span class="text-sm font-light ml-1"
-                  >added a new video</span
-                >
-              </p>
-              <p class="text-sm mb-1">
-                Creative people must follow this guideline
-              </p>
-              <div class="flex items-center">
-                <div class="icon">
-                  <mat-icon class="text-mywhite text-sm w-fit h-fit mr-1"
-                    >videocam</mat-icon
-                  >
-                </div>
-                <p class="text-xs">5 minutes ago</p>
-              </div>
-            </div>
-          </div>
-          <div class="w-full flex items-center gap-3">
-            <div class="bg-mywhite w-32 h-20"></div>
-            <div class="text-mywhite font-light">
-              <p class="font-medium text-lg">
-                John Stainer<span class="text-sm font-light ml-1"
-                  >shared a new document</span
-                >
-              </p>
-              <p class="text-sm mb-1">"How to become an expert"</p>
-              <div class="flex items-center">
-                <div class="icon">
-                  <mat-icon class="text-mywhite text-sm w-fit h-fit mr-1"
-                    >description</mat-icon
-                  >
-                </div>
-                <p class="text-xs">5 days ago</p>
-              </div>
-            </div>
-          </div>
-          <div class="w-full flex items-center gap-3">
-            <div class="bg-mywhite w-32 h-20"></div>
-            <div class="text-mywhite font-light">
-              <p class="font-medium text-lg">
-                Arjun<span class="text-sm font-light ml-1"
-                  >unlocked a new badge</span
-                >
-              </p>
-              <p class="text-sm mb-1">Social Guru</p>
-              <div class="flex items-center">
-                <div class="icon">
-                  <mat-icon class="text-mywhite text-sm w-fit h-fit mr-1"
-                    >badge</mat-icon
-                  >
-                </div>
-                <p class="text-xs">44 minutes ago</p>
-              </div>
-            </div>
-          </div>
-          <div class="w-full flex items-center gap-3">
-            <div class="bg-mywhite w-32 h-20"></div>
-            <div class="text-mywhite font-light">
-              <p class="font-medium text-lg">
-                Michael<span class="text-sm font-light ml-1"
-                  >uploaded a new video</span
-                >
-              </p>
-              <p class="text-sm mb-1">
-                How do I start a website design project
-              </p>
-              <div class="flex items-center">
-                <div class="icon">
-                  <mat-icon class="text-mywhite text-sm w-fit h-fit mr-1"
-                    >videocam</mat-icon
-                  >
-                </div>
-                <p class="text-xs">2 hours ago</p>
-              </div>
-            </div>
-          </div>
-          <div class="w-full flex items-center gap-3">
-            <div class="bg-mywhite w-32 h-20"></div>
-            <div class="text-mywhite font-light">
-              <p class="font-medium text-lg">
-                John Stainer<span class="text-sm font-light ml-1"
-                  >liked a video</span
-                >
-              </p>
-              <p class="text-sm mb-1">Some marketing tricks</p>
-              <div class="flex items-center">
-                <div class="icon">
-                  <mat-icon class="text-mywhite text-sm w-fit h-fit mr-1"
-                    >favorite</mat-icon
-                  >
-                </div>
-                <p class="text-xs">27 minutes ago</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div id="section-2" class="w-full flex mb-14 gap-6">
-      <div class="w-[60%]">
-        <div id="people" class="w-full mb-14">
-          <div class="flex items-end text-mywhite mb-4">
-            <p class="text-3xl w-1/2">Videos</p>
-            <p class="w-1/2 text-sm">Browse all videos</p>
+        <div class="w-full border-mywhite border-y-2 mb-14">
+          <div class="w-full text-mywhite flex items-center text-xl py-4 gap-6">
+            <a class="nav-text" href="#videos">Videos</a>
+            <a class="nav-text" href="#people">People</a>
+            <a class="nav-text" href="#documents">Documents</a>
+            <a class="nav-text" href="#events">Events</a>
+            <a class="nav-text" href="#communities">Communities</a>
+            <a class="nav-text" href="#favourites">Favourites</a>
+            <a class="nav-text" href="#channels">Channels</a>
           </div>
+        </div>
 
-          <div class="grid-parent">
-            <div class="item-grid flex items-end" id="item-grid1">
-              <div class="w-full pb-1 px-2">
-                <p class="text-myred text-2xl">How to improve your skills</p>
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>Waseem Arshad</p>
-                  <p>1237489 views</p>
-                </div>
-              </div>
+        <div id="section-1" class="w-full flex mb-14 gap-6">
+          <div id="videos" class="w-[60%]">
+            <div class="flex items-end text-mywhite mb-4">
+              <p class="text-3xl w-1/2">Videos</p>
+              <p class="w-1/2 text-sm cursor-pointer">Browse all videos</p>
             </div>
-            <div class="item-grid flex items-end" id="item-grid2">
-              <div class="w-full pb-1 px-2">
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>John Stainer</p>
-                  <p>2341 views</p>
-                </div>
-              </div>
-            </div>
-            <div class="item-grid flex items-end" id="item-grid3">
-              <div class="w-full pb-1 px-2">
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>John Doee</p>
-                  <p>2352 views</p>
-                </div>
-              </div>
-            </div>
-            <div class="item-grid flex items-end" id="item-grid4">
-              <div class="w-full pb-1 px-2">
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>Michael Keliph</p>
-                  <p>15637 views</p>
-                </div>
-              </div>
-            </div>
-            <div class="item-grid flex items-end" id="item-grid5">
-              <div class="w-full pb-1 px-2">
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>Ahmed Taslim</p>
-                  <p>1986 views</p>
-                </div>
-              </div>
-            </div>
-            <div
-              class="item-grid flex justify-center items-center bg-myred border border-mywhite"
-              id="item-grid6"
-            >
-              <div class="flex items-center gap-3">
-                <div class="icon">
-                  <mat-icon class="text-mywhite text-4xl">play_circle</mat-icon>
-                </div>
-                <div class="text-mywhite text-sm">
-                  <p>Upload</p>
-                  <p>Your Own Video</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="documents" class="w-full">
-          <div class="flex items-end text-mywhite mb-4">
-            <p class="text-3xl w-1/2">Videos</p>
-            <p class="w-1/2 text-sm">Browse all videos</p>
-          </div>
 
-          <div class="grid-parent">
-            <div class="item-grid flex items-end" id="item-grid1">
-              <div class="w-full pb-1 px-2">
-                <p class="text-myred text-2xl">How to improve your skills</p>
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>Waseem Arshad</p>
-                  <p>1237489 views</p>
+            <div *ngIf="videos.length !== 0" class="grid-parent">
+              <div
+                *ngFor="let video of videos"
+                [attr.class]="
+                  'item-grid' + video.id + ' item-grid flex items-end'
+                "
+              >
+                <div class="w-full pb-1 px-2">
+                  <p class="text-myred text-2xl" *ngIf="video.id === 1">
+                    {{ video.title }}
+                  </p>
+                  <div class="text-myred text-sm flex w-full justify-between">
+                    <p>{{ video.user }}</p>
+                    <p>{{ video.views }} views</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="item-grid flex justify-center items-center bg-myred border border-mywhite item-grid6"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="icon">
+                    <mat-icon class="text-mywhite text-4xl w-full h-full"
+                      >play_circle</mat-icon
+                    >
+                  </div>
+                  <div class="text-mywhite text-sm">
+                    <p>Upload</p>
+                    <p>Your Own Video</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="item-grid flex items-end" id="item-grid2">
-              <div class="w-full pb-1 px-2">
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>John Stainer</p>
-                  <p>2341 views</p>
-                </div>
-              </div>
+            <div *ngIf="videos.length === 0">
+              <p class="text-sm text-mywhite">
+                There's no videos currently for now.
+              </p>
             </div>
-            <div class="item-grid flex items-end" id="item-grid3">
-              <div class="w-full pb-1 px-2">
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>John Doee</p>
-                  <p>2352 views</p>
-                </div>
-              </div>
-            </div>
-            <div class="item-grid flex items-end" id="item-grid4">
-              <div class="w-full pb-1 px-2">
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>Michael Keliph</p>
-                  <p>15637 views</p>
-                </div>
-              </div>
-            </div>
-            <div class="item-grid flex items-end" id="item-grid5">
-              <div class="w-full pb-1 px-2">
-                <div class="text-myred text-sm flex w-full justify-between">
-                  <p>Ahmed Taslim</p>
-                  <p>1986 views</p>
-                </div>
-              </div>
+          </div>
+          <div id="activity" class="w-[40%]">
+            <div class="flex items-end justify-between text-mywhite mb-4">
+              <p class="text-3xl">Activity</p>
+              <p class="text-sm">
+                <span class="cursor-pointer">View timeline</span> /
+                <span class="cursor-pointer">Filter activities</span>
+              </p>
             </div>
             <div
-              class="item-grid flex justify-center items-center bg-myred border border-mywhite"
-              id="item-grid6"
+              class="flex items-center flex-col border-y border-mywhite border-t-4 gap-3 py-3"
+              *ngIf="activities.length !== 0"
             >
-              <div class="flex items-center gap-3">
-                <div class="icon">
-                  <mat-icon class="text-mywhite text-4xl">play_circle</mat-icon>
+              <div
+                class="w-full flex items-center gap-3 activity-item"
+                *ngFor="let activity of activities"
+              >
+                <div class="bg-mywhite w-32 h-20 activity-pict"></div>
+                <div class="text-mywhite font-light">
+                  <p class="font-medium text-lg">
+                    {{ activity.user
+                    }}<span class="text-sm font-light ml-1">{{
+                      activity.statusmessage
+                    }}</span>
+                  </p>
+                  <p class="text-sm mb-1">
+                    {{ activity.message }}
+                  </p>
+                  <div class="flex items-center">
+                    <div class="icon">
+                      <mat-icon class="text-mywhite text-sm w-fit h-fit mr-1">{{
+                        activity.activityIcon
+                      }}</mat-icon>
+                    </div>
+                    <p class="text-xs">{{ activity.uploadDate | timeAgo }}</p>
+                  </div>
                 </div>
-                <div class="text-mywhite text-sm">
-                  <p>Upload</p>
-                  <p>Your Own Video</p>
-                </div>
+              </div>
+              <div *ngIf="activities.length === 0">
+                <p class="text-sm text-mywhite">
+                  There's no activity currently for now.
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div id="channels" class="w-[40%]">
-        <div class="flex items-end justify-between text-mywhite mb-4">
-          <p class="text-3xl">Channels</p>
-          <p class="text-sm">Browse all channels</p>
-        </div>
-        <div
-          class="flex items-center flex-wrap border-y border-mywhite border-t-4 pt-3 w-full"
-        >
-          <div class="channel-item w-1/2 h-32">
-            <div
-              class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
-            >
-              <p class="text-lg font-medium">Google</p>
+
+        <div id="section-2" class="w-full flex mb-14 gap-6">
+          <div class="w-[60%]">
+            <div id="people" class="w-full mb-14">
+              <div class="flex items-end text-mywhite mb-4">
+                <p class="text-3xl w-1/2">People</p>
+                <p class="w-1/2 text-sm cursor-pointer">View all</p>
+              </div>
+
+              <div *ngIf="peoples.length !== 0" class="grid-parent">
+                <div
+                  *ngFor="let people of peoples"
+                  [attr.class]="
+                    'item-grid' + people.id + ' item-grid flex items-end'
+                  "
+                >
+                  <div class="w-full pb-1 px-2">
+                    <p class="text-myred text-2xl" *ngIf="people.id === 1">
+                      {{ people.job }}
+                    </p>
+                    <div class="text-myred text-sm flex w-full justify-between">
+                      <p>{{ people.user }}</p>
+                      <p *ngIf="people.id === 1">{{ people.views }} views</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="item-grid flex justify-center items-center bg-myred border border-mywhite item-grid6"
+                >
+                  <div class="flex items-center gap-3">
+                    <div class="icon">
+                      <mat-icon class="text-mywhite text-4xl w-full h-full"
+                        >radio_button_checked</mat-icon
+                      >
+                    </div>
+                    <div class="text-mywhite text-sm">
+                      <p>Show</p>
+                      <p>Your Work</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="videos.length === 0">
+                <p class="text-sm text-mywhite">
+                  There's no videos currently for now.
+                </p>
+              </div>
+            </div>
+            <div id="documents" class="w-full mb-14">
+              <div class="flex items-end text-mywhite mb-4">
+                <p class="text-3xl w-1/2">Documents</p>
+                <p class="w-1/2 text-sm cursor-pointer">Browse all documents</p>
+              </div>
+
+              <div *ngIf="documents.length !== 0" class="grid-parent">
+                <div
+                  *ngFor="let document of documents"
+                  [attr.class]="
+                    'item-grid' + document.id + ' item-grid flex items-end'
+                  "
+                >
+                  <div class="w-full pb-1 px-2">
+                    <p class="text-myred text-2xl" *ngIf="document.id === 1">
+                      {{ document.title }}
+                    </p>
+                    <p class="text-myred" *ngIf="document.id !== 1">
+                      {{ document.title }}
+                    </p>
+                    <div class="text-myred text-sm flex w-full justify-between">
+                      <p *ngIf="document.id === 1">By {{ document.author }}</p>
+                      <p>{{ document.views }} views</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="item-grid flex justify-center items-center bg-myred border border-mywhite item-grid6"
+                >
+                  <div class="flex items-center gap-3">
+                    <div class="icon">
+                      <mat-icon class="text-mywhite text-4xl w-full h-full"
+                        >add_circle</mat-icon
+                      >
+                    </div>
+                    <div class="text-mywhite text-sm">
+                      <p>Share</p>
+                      <p>Your Document</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="videos.length === 0">
+                <p class="text-sm text-mywhite">
+                  There's no document currently for now.
+                </p>
+              </div>
             </div>
           </div>
-          <div class="channel-item w-1/2 h-32">
-            <div
-              class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
-            >
-              <p class="text-lg font-medium">Google</p>
+          <div id="channels" class="w-[40%]">
+            <div class="flex items-end justify-between text-mywhite mb-4">
+              <p class="text-3xl">Channels</p>
+              <p class="text-sm cursor-pointer">Browse all channels</p>
             </div>
-          </div>
-          <div class="channel-item w-1/2 h-32">
             <div
-              class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
+              class="flex items-center flex-wrap border-y border-mywhite border-t-4 pt-3 w-full"
             >
-              <p class="text-lg font-medium">Google</p>
-            </div>
-          </div>
-          <div class="channel-item w-1/2 h-32">
-            <div
-              class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
-            >
-              <p class="text-lg font-medium">Google</p>
-            </div>
-          </div>
-          <div class="channel-item w-1/2 h-32">
-            <div
-              class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
-            >
-              <p class="text-lg font-medium">Google</p>
-            </div>
-          </div>
-          <div class="channel-item w-1/2 h-32">
-            <div
-              class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
-            >
-              <p class="text-lg font-medium">Google</p>
-            </div>
-          </div>
-          <div class="channel-item w-1/2 h-32">
-            <div
-              class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
-            >
-              <p class="text-lg font-medium">Google</p>
-            </div>
-          </div>
-          <div class="channel-item w-1/2 h-32">
-            <div
-              class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
-            >
-              <p class="text-lg font-medium">Google</p>
-            </div>
-          </div>
-          <div class="channel-item w-1/2 h-32">
-            <div
-              class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
-            >
-              <p class="text-lg font-medium">Google</p>
+              <div
+                class="channel-item w-1/2 h-32"
+                *ngFor="let channel of channels"
+              >
+                <div
+                  class="text-myred flex w-full h-full items-end pb-1 px-2 bg-mywhite"
+                >
+                  <p class="text-lg font-medium">{{ channel.channel }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<router-outlet></router-outlet>
+</ng-template>

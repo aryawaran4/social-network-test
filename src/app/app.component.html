@@ -6,13 +6,17 @@
       class="w-full h-full flex flex-col justify-center items-center bg-myred"
     >
       <div class="w-10/12 h-full flex flex-col justify-center items-center">
-        <div class="w-full flex items-start gap-6 pt-12 pb-14">
+        <div
+          class="w-full flex flex-col lg:flex-row items-start gap-4 lg:gap-6 lg:pt-12 lg:pb-14 pt-6 pb-8"
+        >
           <div class="mr-12">
-            <p class="text-4xl text-mywhite font-thin">
+            <p class="lg:text-4xl text-2xl text-mywhite font-thin">
               <span class="font-normal">Social</span>Network
             </p>
           </div>
-          <div class="bg-mywhite py-3 px-4 flex items-center w-[40%]">
+          <div
+            class="bg-mywhite py-1 px-2 lg:py-3 lg:px-4 flex items-center w-full lg:w-[40%]"
+          >
             <input
               type="text"
               class="bg-mywhite text-myred search-input w-full"
@@ -22,27 +26,56 @@
               <mat-icon class="text-myred">search</mat-icon>
             </button>
           </div>
-          <button class="bg-mywhite py-3 px-4 flex items-center">
+          <div class="flex flex-row gap-3 items-center w-full lg:hidden">
+            <button
+              class="bg-mywhite py-1 px-2 lg:py-3 lg:px-4 flex items-center w-[60%]"
+            >
+              <div class="icon">
+                <mat-icon class="text-myred">file_upload</mat-icon>
+              </div>
+              <p class="text-myred text-sm lg:text-base">Upload</p>
+            </button>
+            <div class="flex items-center gap-1 lg:gap-3 profile w-[40%]">
+              <button
+                class="bg-mywhite py-1 px-2 lg:py-3 lg:px-4 flex items-center"
+              >
+                <div class="icon">
+                  <mat-icon class="text-myred">person</mat-icon>
+                </div>
+              </button>
+              <div class="text-mywhite">
+                <p class="text-xs lg:text-xl">Waseem</p>
+                <p class="text-xs lg:text-sm">Arshad</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="bg-mywhite py-1 px-2 lg:py-3 lg:px-4 items-center hidden lg:flex"
+          >
             <div class="icon">
               <mat-icon class="text-myred">file_upload</mat-icon>
             </div>
-            <p class="text-myred">Upload</p>
+            <p class="text-myred text-sm lg:text-base">Upload</p>
           </button>
-          <div class="flex items-center gap-3 profile">
-            <button class="bg-mywhite py-3 px-4 flex items-center">
+          <div class="items-center gap-1 lg:gap-3 profile hidden lg:flex">
+            <button
+              class="bg-mywhite py-1 px-2 lg:py-3 lg:px-4 flex items-center"
+            >
               <div class="icon">
                 <mat-icon class="text-myred">person</mat-icon>
               </div>
             </button>
             <div class="text-mywhite">
-              <p class="text-xl">Waseem</p>
-              <p class="text-sm">Arshad</p>
+              <p class="text-xs lg:text-xl">Waseem</p>
+              <p class="text-xs lg:text-sm">Arshad</p>
             </div>
           </div>
         </div>
 
         <div class="w-full border-mywhite border-y-2 mb-14">
-          <div class="w-full text-mywhite flex items-center text-xl py-4 gap-6">
+          <div
+            class="w-full text-mywhite flex flex-col lg:flex-row items-center text-sm lg:text-base py-4 gap-6"
+          >
             <a class="nav-text" href="#videos">Videos</a>
             <a class="nav-text" href="#people">People</a>
             <a class="nav-text" href="#documents">Documents</a>
@@ -53,11 +86,16 @@
           </div>
         </div>
 
-        <div id="section-1" class="w-full flex mb-14 gap-6">
-          <div id="videos" class="w-[60%]">
+        <div
+          id="section-1"
+          class="w-full flex flex-col lg:flex-row mb-14 gap-6"
+        >
+          <div id="videos" class="w-full lg:w-[60%]">
             <div class="flex items-end text-mywhite mb-4">
               <p class="text-3xl w-1/2">Videos</p>
-              <p class="w-1/2 text-sm cursor-pointer">Browse all videos</p>
+              <p class="w-1/2 text-right text-xs lg:text-sm cursor-pointer">
+                Browse all videos
+              </p>
             </div>
 
             <div *ngIf="videos.length !== 0" class="grid-parent">
@@ -71,7 +109,9 @@
                   <p class="text-myred text-2xl" *ngIf="video.id === 1">
                     {{ video.title }}
                   </p>
-                  <div class="text-myred text-sm flex w-full justify-between">
+                  <div
+                    class="text-myred text-xs lg:text-sm flex w-full justify-between"
+                  >
                     <p>{{ video.user }}</p>
                     <p>{{ video.views }} views</p>
                   </div>
@@ -86,7 +126,7 @@
                       >play_circle</mat-icon
                     >
                   </div>
-                  <div class="text-mywhite text-sm">
+                  <div class="text-mywhite text-xs lg:text-sm">
                     <p>Upload</p>
                     <p>Your Own Video</p>
                   </div>
@@ -94,15 +134,15 @@
               </div>
             </div>
             <div *ngIf="videos.length === 0">
-              <p class="text-sm text-mywhite">
+              <p class="text-xs lg:text-sm text-mywhite">
                 There's no videos currently for now.
               </p>
             </div>
           </div>
-          <div id="activity" class="w-[40%]">
+          <div id="activity" class="w-full lg:w-[40%]">
             <div class="flex items-end justify-between text-mywhite mb-4">
               <p class="text-3xl">Activity</p>
-              <p class="text-sm">
+              <p class="text-xs lg:text-sm">
                 <span class="cursor-pointer">View timeline</span> /
                 <span class="cursor-pointer">Filter activities</span>
               </p>
@@ -115,29 +155,31 @@
                 class="w-full flex items-center gap-3 activity-item"
                 *ngFor="let activity of activities"
               >
-                <div class="bg-mywhite w-32 h-20 activity-pict"></div>
-                <div class="text-mywhite font-light">
-                  <p class="font-medium text-lg">
+                <div class="bg-mywhite w-[40%] h-20 activity-pict"></div>
+                <div class="text-mywhite font-light w-[60%]">
+                  <p class="font-medium text-lg elepsis">
                     {{ activity.user
-                    }}<span class="text-sm font-light ml-1">{{
-                      activity.statusmessage
-                    }}</span>
+                    }}<span
+                      class="text-xs lg:text-sm font-light mb-1 lg:mb-0 lg:ml-1 block lg:inline"
+                      >{{ activity.statusmessage }}</span
+                    >
                   </p>
-                  <p class="text-sm mb-1">
+                  <p class="text-xs lg:text-sm mb-1 elepsis">
                     {{ activity.message }}
                   </p>
                   <div class="flex items-center">
                     <div class="icon">
-                      <mat-icon class="text-mywhite text-sm w-fit h-fit mr-1">{{
-                        activity.activityIcon
-                      }}</mat-icon>
+                      <mat-icon
+                        class="text-mywhite text-xs lg:text-sm w-fit h-fit mr-1"
+                        >{{ activity.activityIcon }}</mat-icon
+                      >
                     </div>
                     <p class="text-xs">{{ activity.uploadDate | timeAgo }}</p>
                   </div>
                 </div>
               </div>
               <div *ngIf="activities.length === 0">
-                <p class="text-sm text-mywhite">
+                <p class="text-xs lg:text-sm text-mywhite">
                   There's no activity currently for now.
                 </p>
               </div>
@@ -145,12 +187,17 @@
           </div>
         </div>
 
-        <div id="section-2" class="w-full flex mb-14 gap-6">
-          <div class="w-[60%]">
+        <div
+          id="section-2"
+          class="w-full flex flex-col lg:flex-row mb-14 gap-6"
+        >
+          <div class="w-full lg:w-[60%]">
             <div id="people" class="w-full mb-14">
               <div class="flex items-end text-mywhite mb-4">
-                <p class="text-3xl w-1/2">People</p>
-                <p class="w-1/2 text-sm cursor-pointer">View all</p>
+                <p class="text-lg lg:text-3xl w-1/2">People</p>
+                <p class="w-1/2 text-right text-xs lg:text-sm cursor-pointer">
+                  View all
+                </p>
               </div>
 
               <div *ngIf="peoples.length !== 0" class="grid-parent">
@@ -164,7 +211,9 @@
                     <p class="text-myred text-2xl" *ngIf="people.id === 1">
                       {{ people.job }}
                     </p>
-                    <div class="text-myred text-sm flex w-full justify-between">
+                    <div
+                      class="text-myred text-xs lg:text-sm flex w-full justify-between"
+                    >
                       <p>{{ people.user }}</p>
                       <p *ngIf="people.id === 1">{{ people.views }} views</p>
                     </div>
@@ -179,7 +228,7 @@
                         >radio_button_checked</mat-icon
                       >
                     </div>
-                    <div class="text-mywhite text-sm">
+                    <div class="text-mywhite text-xs lg:text-sm">
                       <p>Show</p>
                       <p>Your Work</p>
                     </div>
@@ -187,7 +236,7 @@
                 </div>
               </div>
               <div *ngIf="videos.length === 0">
-                <p class="text-sm text-mywhite">
+                <p class="text-xs lg:text-sm text-mywhite">
                   There's no videos currently for now.
                 </p>
               </div>
@@ -195,7 +244,9 @@
             <div id="documents" class="w-full mb-14">
               <div class="flex items-end text-mywhite mb-4">
                 <p class="text-3xl w-1/2">Documents</p>
-                <p class="w-1/2 text-sm cursor-pointer">Browse all documents</p>
+                <p class="w-1/2 text-right text-xs lg:text-sm cursor-pointer">
+                  Browse all documents
+                </p>
               </div>
 
               <div *ngIf="documents.length !== 0" class="grid-parent">
@@ -212,7 +263,9 @@
                     <p class="text-myred" *ngIf="document.id !== 1">
                       {{ document.title }}
                     </p>
-                    <div class="text-myred text-sm flex w-full justify-between">
+                    <div
+                      class="text-myred text-xs lg:text-sm flex w-full justify-between"
+                    >
                       <p *ngIf="document.id === 1">By {{ document.author }}</p>
                       <p>{{ document.views }} views</p>
                     </div>
@@ -227,7 +280,7 @@
                         >add_circle</mat-icon
                       >
                     </div>
-                    <div class="text-mywhite text-sm">
+                    <div class="text-mywhite text-xs lg:text-sm">
                       <p>Share</p>
                       <p>Your Document</p>
                     </div>
@@ -235,16 +288,18 @@
                 </div>
               </div>
               <div *ngIf="videos.length === 0">
-                <p class="text-sm text-mywhite">
+                <p class="text-xs lg:text-sm text-mywhite">
                   There's no document currently for now.
                 </p>
               </div>
             </div>
           </div>
-          <div id="channels" class="w-[40%]">
+          <div id="channels" class="w-full lg:w-[40%]">
             <div class="flex items-end justify-between text-mywhite mb-4">
               <p class="text-3xl">Channels</p>
-              <p class="text-sm cursor-pointer">Browse all channels</p>
+              <p class="text-xs lg:text-sm cursor-pointer">
+                Browse all channels
+              </p>
             </div>
             <div
               class="flex items-center flex-wrap border-y border-mywhite border-t-4 pt-3 w-full"

@@ -1,1 +1,122 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.search-input::placeholder {
+  color: #953e45;
+  opacity: 1; /* Firefox */
+}
+
+.search-input::-ms-input-placeholder {
+  /* Edge 12 -18 */
+  color: #953e45;
+}
+
+input:focus {
+  outline: none;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon .mat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile {
+  position: relative;
+}
+
+.profile::after {
+  content: "31";
+  background: #f4e3cf;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #953e45;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: -25px;
+  top: -10px;
+  font-weight: 500;
+}
+
+.nav-text::after {
+  content: "/";
+  color: #f4e3cf;
+  margin-left: 24px;
+}
+
+.nav-text:last-of-type:after {
+  content: none;
+}
+
+.grid-parent {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  gap: 12px;
+  height: 568px;
+}
+
+.item-grid {
+  background: #f4e3cf;
+  cursor: pointer;
+}
+
+.item-grid:last-of-type {
+  background: unset;
+}
+
+#item-grid1 {
+  grid-area: 1 / 1 / 7 / 7;
+}
+#item-grid2 {
+  grid-area: 7 / 1 / 10 / 4;
+}
+#item-grid3 {
+  grid-area: 7 / 4 / 10 / 7;
+}
+#item-grid4 {
+  grid-area: 1 / 7 / 4 / 10;
+}
+#item-grid5 {
+  grid-area: 4 / 7 / 7 / 10;
+}
+#item-grid6 {
+  grid-area: 7 / 7 / 10 / 10;
+}
+
+.channel-item:nth-child(odd) {
+  padding-right: 6px;
+}
+
+.channel-item:nth-child(even) {
+  padding-left: 6px;
+}
+
+.channel-item {
+  margin-bottom: 12px;
+  cursor: pointer;
+}
